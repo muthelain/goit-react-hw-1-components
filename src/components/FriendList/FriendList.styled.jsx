@@ -1,6 +1,13 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
-export const FriendListStyled = styled.ul`
-  margin: 20px auto;
-  width: 300px;
+export const ListOfFriend = styled.ul`
+
+width: 450px;
+
+margin: auto;
+padding-top: 20px;
+
+margin-block-start: 0em;
+margin-block-end: 0em;
+padding-inline-start: 0px;
 `;

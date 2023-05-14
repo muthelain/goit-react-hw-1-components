@@ -1,40 +1,48 @@
 import PropTypes from 'prop-types';
 import {
-  Table,
-  TableHeader,
-  TableRow,
-  TableData,
-} from './TransactionHistory.styled';
+TransactionTable,
+HeadT,
+HeadUl,
+HeadLi,
+BodyT,
+BodyUl,
+BodyLi,
 
-export const TransactionHistory = ({ items }) => (
-  <Table>
-    <thead>
-      <tr>
-        <TableHeader>Type</TableHeader>
-        <TableHeader>Amount</TableHeader>
-        <TableHeader>Currency</TableHeader>
-      </tr>
-    </thead>
+} from './TransactionHistory.styled'
 
-    <tbody>
-      {items.map(({ id, type, amount, currency }, index) => (
-        <TableRow key={id} rowNumber={index + 1}>
-          <TableData>{type}</TableData>
-          <TableData>{amount}</TableData>
-          <TableData>{currency}</TableData>
-        </TableRow>
-      ))}
-    </tbody>
-  </Table>
-);
+export function TransactionHistory ({ items }){
+    return (
+        <TransactionTable>
+            <HeadT>
+                <HeadUl>
+                    <HeadLi>Type</HeadLi>
+                    <HeadLi>Amount</HeadLi>
+                    <HeadLi>Currency</HeadLi>
+                </HeadUl>
+            </HeadT>
+
+            <BodyT>
+                {items.map(items => {
+                    return (
+                        <BodyUl key={items.id}>
+                            <BodyLi>{items.type}</BodyLi>
+                            <BodyLi>{items.amount}</BodyLi>
+                            <BodyLi>{items.currency}</BodyLi>
+                        </BodyUl>
+                    )
+                })}
+            </BodyT>
+        </TransactionTable>
+    )
+};
 
 TransactionHistory.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-      amount: PropTypes.string.isRequired,
-      currency: PropTypes.string.isRequired,
-    })
-  ),
-};
+    items: PropTypes.arrayOf(
+      PropTypes.exact({
+        id: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        amount: PropTypes.string.isRequired,
+        currency: PropTypes.string.isRequired,
+      })
+    ),
+  };
