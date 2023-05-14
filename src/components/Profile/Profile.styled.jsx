@@ -1,72 +1,66 @@
-import styled from '@emotion/styled';
-export const ProfileCard = styled.div`
-width: 300px;
-margin: 20px auto;
-background-color: rgb(255, 255, 255);
-border-radius: 5px;
+import styled from 'styled-components';
+
+export const UserProfile = styled.div`
+  width: 300px;
+  margin: 20px auto;
+
+  background-color: #ffffff;
+  border-radius: 5px;
 `;
 
-export const DescriptionCard = styled.div`
-text-align: center;
-padding: 42px;
+export const Description = styled.div`
+  text-align: center;
+  padding: 42px;
 `;
 
 export const Avatar = styled.img`
-display: block;
-margin: 0px auto 10px;
-width: 102px;
-border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  width: 102px;
+  border-radius: 50%;
+  margin-bottom: 10px;
 `;
 
 export const UserName = styled.p`
-font-size: 20px;
-font-weight: 700;
-margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
 `;
 
-export const UserTag = styled.p`
-font-size: 14px;
-color: gray;
-margin-bottom: 10px;
-`;
+const stylesForTagLocation = {
+  'font-size': '14px',
+  color: 'gray',
+  'margin-bottom': '10px',
+};
 
-export const UserLocation = styled.p`
-font-size: 14px;
-color: gray;
-margin-bottom: 10px;
-`;
+export const UserTag = styled.p(stylesForTagLocation);
 
-export const UserStats = styled.ul`
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
-    margin: 0px auto;
-    padding-inline-start: 0px;
-    background-color: rgb(196, 206, 216);
-}
-`;
+export const UserLocation = styled.p(stylesForTagLocation);
 
-export const UserStatsItem = styled.li`
+export const Stats = styled.ul`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50px;
-  padding: 15px 20px;
-  :not(:last-child) {
-    border-right: 1px solid black;
-  }
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #c4ced8;
 `;
 
-export const UserStatsLabel = styled.span`
-display: block;
-color: gray;
-font-size: 12px;
-margin-bottom: 5px;
+export const StatsItem = styled.li`
+  flex-basis: calc(100% / 3);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: 1px solid #0000005e;
 `;
 
-export const UserStatsQuantity = styled.span`
-display: block;
-font-weight: 500;
+export const Label = styled.span`
+  display: block;
+  color: gray;
+  font-size: 12px;
+  margin-bottom: 5px;
+`;
+
+export const Quantity = styled.span`
+  display: block;
+  font-weight: 500;
 `;

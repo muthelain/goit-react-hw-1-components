@@ -1,47 +1,43 @@
 import PropTypes from 'prop-types';
-
 import {
-  StatisticSection,
+  Statistic,
   Title,
-  StatisticList,
-  StatisticListItem,
-  StatisticLabel,
-  StatisticPercentage} from './Statistics.styled'
+  Stats,
+  StatsItem,
+  Label,
+  Percentage,
+} from './Statistics.styled';
 
-export function Statistics({ title, stats }) {
-    return (
-      <StatisticSection>
-        {title && <Title>{title}</Title>}
-        <StatisticList>
-          {stats.map(stat => {
-            return (
-              <StatisticListItem
-                randomColor={getRandomHexColor()}
-                key={stat.id}
-                className="item"
-              >
-                <StatisticLabel>{stat.label}</StatisticLabel>
-                <StatisticPercentage>{stat.percentage}%</StatisticPercentage>
-              </StatisticListItem>
-            );
-          })}
-        </StatisticList>
-      </StatisticSection>
-    );
-  }
+export const Statistics = ({ title, stats }) => {
+  return (
+    <Statistic>
+      {title && <Title>{title}</Title>}
+      <Stats>
+        {stats.map(({ id, label, percentage }) => (
+          <StatsItem
+            key={id}
+            style={{ backgroundColor: getRandomHexColor(), color: 'white' }}
+          >
+            <Label>{label}</Label>
+            <Percentage>{percentage}%</Percentage>
+          </StatsItem>
+        ))}
+      </Stats>
+    </Statistic>
+  );
+};
 
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ),
+};
 
-  Statistics.propTypes = {
-    title: PropTypes.string,
-    stats: PropTypes.arrayOf(
-      PropTypes.exact({
-        id: PropTypes.string.isRequired,
-        label: PropTypes.string.isRequired,
-        percentage: PropTypes.number.isRequired,
-      })
-    ).isRequired,
-  };
-
-  function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-  }
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}

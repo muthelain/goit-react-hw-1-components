@@ -1,54 +1,44 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
-export const StatisticSection = styled.section`
-width: 450px;
-margin: auto;
+export const Statistic = styled.section`
+  width: 300px;
+  margin: 20px auto;
+  margin: 0 auto;
+  background-color: #fff;
 `;
 
 export const Title = styled.h2`
-  font-size: 40px;
-  padding: 30px;
-
-  text-align: center;
-
-  background-color: white;
-
-  margin-block-start: 0em;
-  margin-block-end: 0em;
-`;
-
-export const StatisticList = styled.ul`
-  display: flex;
-  justify-content: space-between;
-
-  padding-inline-start: 0px;
-  margin-block-start: 0em;
-  margin-block-end: 0em;
-`;
-
-export const StatisticListItem = styled.li`
-  display: flex;
-align-items: : center;
-justify-content: center;
-  flex-direction: column;
-
-  gap: 5px;
-  padding: 20px;
-  width: 50px;
-
-  background-color: ${props => {
-    return props.randomColor;
-  }};
-`;
-
-export const StatisticLabel = styled.span`
   font-size: 20px;
+  font-weight: 700;
+  padding: 20px;
+  text-transform: uppercase;
   text-align: center;
-  color: white;
 `;
 
-export const StatisticPercentage = styled.span`
-  font-size: 25px;
+export const Stats = styled.ul`
+  display: flex;
+  justify-content: center;
+  /* gap: 20px; */
+  width: 100%;
   text-align: center;
-  color: white;
+  margin: 0 auto;
+  background-color: #c4ced8;
+`;
+
+export const StatsItem = styled.li`
+  flex-basis: calc(100% / 4);
+  padding-top: 20px;
+  padding-bottom: 20px;
+`;
+
+export const Label = styled.span`
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+`;
+
+export const Percentage = styled.span`
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
 `;
